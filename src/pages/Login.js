@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import CommonLayout from "../layouts/CommonLayout";
 import LogoImg from "../assets/logo.png";
 import { Button, Card, Form, InputGroup } from "react-bootstrap";
@@ -86,6 +86,22 @@ const Login = () => {
       requestLogin();
     }
   };
+
+  // useEffect
+  // 처음 렌더링할때 로컬스토리지에 rememberId가 있으면
+  // id값 채워넣고, 체크박스 체크
+
+  const setLoginPage = () => {
+    const rememberId = JSON.parse(localStorage.getItem("rememberId"));
+    if (rememberId !== null) {
+      refs.current.idElement.value = rememberId;
+      refs.current.rememberMeElement.checked = true;
+    }
+  };
+
+  useEffect(() => {
+    setLoginPage();
+  }, []);
 
   return (
     <CommonLayout>
