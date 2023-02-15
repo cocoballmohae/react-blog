@@ -4,6 +4,7 @@ import LogoImg from "../assets/logo.png";
 import { Button, Card, Form, InputGroup } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { customAxios } from "../utils/CustomAxios";
+import AuthStore from "../stores/AuthStore";
 
 // 로그인
 const Login = () => {
@@ -14,6 +15,7 @@ const Login = () => {
   });
 
   const navigate = useNavigate();
+  const authStore = AuthStore();
 
   const validateFields = () => {
     // 아이디랑 비밀번호가 빈 값인지
@@ -102,6 +104,10 @@ const Login = () => {
   useEffect(() => {
     setLoginPage();
   }, []);
+
+  useEffect(() => {
+    authStore.setLoginUser(null);
+  }, [authStore]);
 
   return (
     <CommonLayout>
