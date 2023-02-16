@@ -54,9 +54,15 @@ const MyNavbar = () => {
                 {authStore.loginUser ? (
                   <NavDropdown
                     title={
-                      <Button variant='success' style={{ marginLeft: "10px" }}>
-                        메뉴 열기
-                      </Button>
+                      <Image
+                        src={authStore.loginUser.profileImage}
+                        className='rounded-circle'
+                        style={{
+                          marginLeft: "10px",
+                          width: "35px",
+                          height: "35px",
+                        }}
+                      />
                     }
                   >
                     <div className='dropdown-item'>
