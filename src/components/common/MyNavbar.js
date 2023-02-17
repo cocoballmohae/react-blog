@@ -20,6 +20,12 @@ const MyNavbar = () => {
   const navigate = useNavigate();
   const authStore = AuthStore();
 
+  const logout = () => {
+    localStorage.removeItem("accessToken");
+    localStorage.removeItem("rememberId");
+    navigate("/login");
+  };
+
   return (
     <div style={{ backgroundColor: "lightgray" }}>
       <Navbar>
@@ -81,7 +87,7 @@ const MyNavbar = () => {
                     <Anchor
                       href='#'
                       onClick={() => {
-                        navigate("/login", { replace: true });
+                        logout();
                       }}
                       className='dropdown-item'
                     >
