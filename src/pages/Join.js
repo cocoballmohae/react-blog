@@ -74,7 +74,7 @@ const Join = () => {
     const user = {
       id: idElement.value,
       password: pwElement.value,
-      simpleDescElement: simpleDescElement.value,
+      simpleDesc: simpleDescElement.value,
     };
     // publicAxios : 서버랑 통신
     // then : 예상 가능한 에러 처리

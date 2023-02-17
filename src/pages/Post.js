@@ -170,7 +170,7 @@ const Post = () => {
               </span>
             </div>
 
-            <butoon id='likeButton' className='btn' onClick={clickLike}>
+            <button id='likeButton' className='btn' onClick={clickLike}>
               <Image
                 src={post.likeClicked ? LikeRedImg : LikeImg}
                 width='20'
@@ -179,7 +179,7 @@ const Post = () => {
               <span id='likeCount' className='text-black-50 mx-2'>
                 {post.like}
               </span>
-            </butoon>
+            </button>
 
             {authStore.loginUser.idx != null &&
             authStore.loginUser.idx === post.writer.idx ? (
