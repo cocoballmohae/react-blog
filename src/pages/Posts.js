@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { CardGroup, Container } from "react-bootstrap";
+import { Button, CardGroup, Container } from "react-bootstrap";
 import MyCard from "../components/common/MyCard";
 import CommonLayout from "../layouts/CommonLayout";
 import { customAxios } from "../utils/CustomAxios";
@@ -32,18 +32,25 @@ const Posts = () => {
       .finally(() => {});
   };
 
+  const reset = () => {
+    getPost();
+  };
+
   useEffect(() => {
     getPost();
   }, []);
 
   return (
-    <CommonLayout>
+    <CommonLayout post={post} setPost={setPost}>
       <Container>
         <CardGroup>
           {post.map((post, index) => (
             <MyCard key={index} post={post} />
           ))}
         </CardGroup>
+        <Button variant='outline-success' className='mt-2' onClick={reset}>
+          초기화
+        </Button>
       </Container>
     </CommonLayout>
   );
